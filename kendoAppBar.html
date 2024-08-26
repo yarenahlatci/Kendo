@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div id="appbar"></div>
+    <div class="main">
+      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, sunt!</h1>
+      <h3>Lorem ipsum dolor sit amet.</h3>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#appbar").kendoAppBar({
+          items: [ //Bu özellik, AppBar içinde yer alacak öğeleri tanımlar. Her öğe bir nesne olarak belirtilir ve type ve template gibi özelliklerle yapılandırılır.
+          {
+            type:"contentItem",
+            template: '<i class="fa-solid fa-heart"></i>', //İlk olarak sayfa başında icon tanımlanıır
+          },
+            {
+              type: "spacer", //spacer: Bu tür, AppBar içinde boşluk bırakmak için kullanılır. Bu, öğeler arasında boşluk oluşturarak düzeni ayarlamaya yarar.
+            },
+            {
+              type: "contentItem",
+              template: "<h3 class='h3-tıtle' style='margin: 0;'>Hello World!</h3>", //İçeriği HTML olarak tanımlamak için kullanılır.
+            },
+            {
+              type: "spacer", //Bir boşluk bırakıldı
+            },
+            {
+              type: "contentItem",
+              template: "<button class='k-button'>Anasayfa</button>", //Boşluktan sonra(sağ köşeye) buttonlar eklendi. 1.Button
+            },
+            {
+              type: "contentItem",
+              template: "<button class='k-button'>Bize Ulaşın</button>", //Boşluktan sonra 1.button eklendi
+            },
+          ],
+        });
+      });
+    </script>
+    <style>
+      .k-button{
+        padding: 10px;
+        font-weight: bold;
+        background-color: rgb(65, 65, 65);
+        color: white;
+        border-radius: 5px;
+        letter-spacing: 3px;
+      }
+      .k-button:hover{
+        background-color: brown;
+      }
+
+      .h3-tıtle{
+        color: brown;
+        background-color: cornsilk;
+        padding: 5px;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        font-size: 25px;
+      }
+    </style>
+  </body>
+</html>
+<!--
+kendoAppBar: Üst bilgi veya alt bilgi olarak kullanılabilen bir uygulama çubuğu bileşeni sunar.
+
+-->

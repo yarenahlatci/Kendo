@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    <style>
+      #diagram {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="diagram"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#diagram").kendoDiagram({
+          //Bu fonksiyon, #diagram ID'sine sahip bir HTML elemanını Kendo UI Diagram bileşeni olarak başlatır.
+
+          shapes: [
+            //shapes Şekillerin tanımlandığı dizi. Diagram üzerinde gösterilecek şekillerin özelliklerini belirler.
+            {
+              id: "shape1", //id: Şekilin benzersiz kimliği.
+              width: 100, //width ve height: Şekilin genişliği ve yüksekliği.
+              height: 100,
+              offsetX: 50, //offsetX ve offsetY: Şekilin diagram üzerindeki konumu.
+              offsetY: 50,
+              shape: { type: "rectangle" }, //shape: Şekil türünü belirtir (rectangle ve ellipse burada kullanılmıştır).
+              content: "Şekil 1", //content: Şekil içinde görüntülenecek metin
+            },
+            {
+              id: "shape2",
+              width: 100,
+              height: 100,
+              offsetX: 200,
+              offsetY: 50,
+              shape: { type: "ellipse" },
+              content: "Şekil 2",
+            },
+            {
+              id: "shape3",
+              width: 100,
+              height: 100,
+              offsetX: 200,
+              offsetY: 50,
+              shape: { type: "ellipse" },
+              content: "Şekil 3",
+            },
+            {
+              id: "shape4",
+              width: 100,
+              height: 100,
+              offsetX: 200,
+              offsetY: 50,
+              shape: { type: "ellipse" },
+              content: "Şekil 4",
+            },
+          ],
+          connections: [{ from: "shape1", to: "shape2", type: "straight" }], //Şekiller arasındaki bağlantıları tanımlar.from: Bağlantının başladığı şekil (bu örnekte "shape1"),to: Bağlantının bittiği şekil (bu örnekte "shape2"),type: Bağlantı türü (bu örnekte straight, yani düz bir çizgi).
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoDiagram: Akış şemaları, organizasyon şemaları ve diğer grafik diyagramlar oluşturmak için kullanılır.
+-->

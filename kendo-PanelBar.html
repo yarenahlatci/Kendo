@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <ul id="panelbar">
+          <li class="k-expanded">
+              <span class="k-link k-selected">My Teammates</span>
+              <div style="padding: 10px;">
+                  <div class="teamMate">
+                      <div class="details">
+                          <h2>Andrew Fuller</h2>
+                          <p>Team Lead</p>
+                      </div>
+                  </div>
+                  <div class="teamMate">
+                      <div class="details">
+                          <h2>Nancy Leverling</h2>
+                          <p>Sales Associate</p>
+                      </div>
+                  </div>
+                  <div class="teamMate">
+                      <div class="details">
+                          <h2>Robert King</h2>
+                          <p>Business System Analyst</p>
+                      </div>
+                  </div>
+              </div>
+          </li>
+          <li>
+              Projects
+              <ul>
+                  <li>New Business Plan</li>
+                  <li>
+                      Sales Forecasts
+                      <ul>
+                          <li>Q1 Forecast</li>
+                          <li>Q2 Forecast</li>
+                          <li>Q3 Forecast</li>
+                          <li>Q4 Forecast</li>
+                      </ul>
+                  </li>
+                  <li>Sales Reports</li>
+              </ul>
+  
+          </li>
+          <li>
+              Programs
+              <ul>
+                  <li>Monday</li>
+                  <li>Tuesday</li>
+                  <li>Wednesday</li>
+                  <li>Thursday</li>
+                  <li>Friday</li>
+              </ul>
+          </li>
+          <li disabled="disabled">
+              Communication
+          </li>
+      </ul>
+    <script>
+      $(document).ready(function () {
+        $("#panelbar").kendoPanelBar();
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoPanelBar: Genişletilebilir ve daraltılabilir panel listeleri oluşturur.
+-->

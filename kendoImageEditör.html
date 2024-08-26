@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    <style>
+      #imageEditor {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+      <div class="demo-section wide">
+          <div id="imageEditor"></div>
+      </div>
+    <script>
+$(document).ready(function () {
+            $("#imageEditor").kendoImageEditor({ //Idsi imageEditor olana kendoImageEditoru başlatır
+                imageUrl: "resim1.png", //Resmmimizi yükleriz
+                width: "100%", //Image Editor'ın genişliği, kapsayıcı öğenin yüzde 100'ü olarak ayarlanır, bu da onu bulunduğu alanın tamamını kaplayacak şekilde genişletir.
+                height: 900, //Image Editor'ın yüksekliği piksel cinsinden ayarlanır. Bu örnekte 900 piksel olarak belirlenmiştir.
+                saveAs: {
+                    fileName: "image_edited.png" //Resim düzenlendikten sonra kaydedildiğinde, varsayılan dosya adı olarak "image_edited.png" kullanılacaktır.
+                }
+            });
+
+            var imageEditor = $("#imageEditor").getKendoImageEditor(); //imageEditor değişkeni, id değeri imageEditor olan Image Editor widget'ının bir örneğini alır. Bu, widget'ın yöntemlerine erişim sağlar.
+            imageEditor.one("imageRendered",function(){ //Bu, resim editörüne bir "imageRendered" (resim render edildi) olay dinleyicisi ekler. Bu olay, resim ilk kez render edildikten sonra tetiklenir.
+                imageEditor.executeCommand({ command: "ZoomImageEditorCommand", options: imageEditor.getZoomLevel() - 0.2 }); //Bu komut, ZoomImageEditorCommand komutunu çalıştırır. Komut, mevcut zoom seviyesini -0.2 kadar azaltır. Yani, resmin zoom seviyesini biraz küçültür.
+            });
+        });
+    </script>
+  </body>
+</html>
+<!--
+kendoImageEditor: Görselleri düzenlemek ve çeşitli görsel efektler uygulamak için kullanılan bir görüntü düzenleyici sağlar.
+-->

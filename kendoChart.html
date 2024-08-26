@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#chart").kendoChart({
+          //Bu fonksiyon, #chart ID'sine sahip bir HTML elemanını Kendo UI Chart bileşeni olarak başlatır.
+          title: {
+            //text: "AYLIK SATIŞ VERİLERİ": Grafiğin başlığını ayarlar. Bu durumda başlık "AYLIK SATIŞ VERİLERİ" olarak belirlenmiştir.
+            text: "AYLIK SATIŞ VERİLERİ",
+          },
+          series: [
+            //name: "Satış": Grafikte veri serisinin adını belirler. Bu örnekte "Satış" olarak ayarlanmış.
+            {
+              name: "Satış",
+              data: [5, 100, 15, 0, 50, 22, 105, 40, 200, 50, 55, 100], //data: [5, 100, 15, 0, 50, 22, 105, 40, 200, 50, 55, 100]: Grafikteki veri noktalarını içerir. Bu örnekte, 12 aylık satış verileri sağlanmıştır.
+              type: "area", //type: "line": Grafiğin türünü belirtir. Burada line (çizgi) türünde bir grafik oluşturulmuştur. Kendo UI Chart ayrıca bar, column, area, ve pie gibi diğer grafik türlerini de destekler.
+            },
+          ],
+          categoryAxis: {
+            //Categoriler belirlenmiştir.
+            categories: [
+              //categories: [...]: X ekseninde gösterilecek kategorileri belirler. Bu örnekte, ay isimleri (Ocak, Şubat, vb.) sağlanmıştır.
+              "Ocak",
+              "Şubat",
+              "Mart",
+              "Nisan",
+              "Mayıs",
+              "Haziran",
+              "Temmuz",
+              "Ağustos",
+              "Eylül",
+              "Ekim",
+              "Kasım",
+              "Aralık",
+            ],
+          },
+          valueAxis: {
+            //title: { text: "Satış Miktarı" }: Y ekseninin başlığını ayarlar. Bu örnekte başlık "Satış Miktarı" olarak belirlenmiştir.
+            title: {
+              //Y eksen başlığı ayarlıyoruz.
+              text: "Satış Miktarı",
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoChart: Çeşitli grafik türlerini (çizgi, çubuk, pasta vb.) görüntülemek için kullanılır.
+-->

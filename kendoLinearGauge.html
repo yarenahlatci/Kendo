@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="gauge-container">
+      <div id="gauge"></div>
+    </div>
+    <script>
+      function createGauges() {
+        //Bu fonksiyon, #gauge öğesine bir Kendo UI Linear Gauge widget'ı oluşturur.
+        var value = $("#gauge-value").val();
+
+        $("#gauge").kendoLinearGauge({
+          pointer: {
+            //Bu, göstergenin mevcut değerini belirtir. Bu örnekte value: 28 olarak ayarlanmıştır, yani gösterge 28 değerini gösterir.
+            value: 28,
+          },
+          scale: {
+            //Ölçekle ilgili ayarları yapar.
+            majorUnit: 10, // majorUnit: Büyük bölümler arasındaki mesafe 10 birim).
+            minorUnit: 5, //minorUnit: Küçük bölümler arasındaki mesafe (5 birim).
+            min: -40, //min ve max: Ölçeğin minimum ve maksimum değerlerini belirler. Bu örnekte -40 ile 60 arasında bir ölçek kullanılır.
+            max: 60,
+            vertical: true, //vertical: Ölçeğin dikey olup olmadığını belirtir. true olarak ayarlandığında, gösterge dikey olur.
+            ranges: [
+              //Ölçek üzerindeki renkli bölgeleri tanımlar. Bu bölgeler, belirli değer aralıklarına renkler atar:
+              {
+                //-40 ile -20 arasında mavi (#2798df).
+                from: -40,
+                to: -20,
+                color: "#2798df",
+              },
+              {
+                //30 ile 45 arasında sarı (#ffc700).
+                from: 30,
+                to: 45,
+                color: "#ffc700",
+              },
+              {
+                //45 ile 60 arasında kırmızı (#c20000).
+                from: 45,
+                to: 60,
+                color: "#c20000",
+              },
+            ],
+          },
+        });
+      }
+
+      $(document).ready(function () {
+        //Sayfa yüklendiği zaman createGauges() fonksiyonu çalışacak
+        createGauges();
+
+        $(document).bind("kendo:skinChange", function (e) {
+          createGauges(); //Kendo UI skin (görünüm) değiştirildiğinde tetiklenen bir olay dinleyicisidir. Skin değiştiğinde createGauges fonksiyonunu yeniden çağırarak widget'ın görünümünü günceller. Bu, temalar arasında geçiş yapıldığında widget'ın stilinin güncellenmesini sağlar.
+        });
+      });
+    </script>
+    <style>
+      #gauge-container {
+        text-align: center;
+        margin: 0 auto;
+        border: 5px solid rgb(161, 0, 0);
+        padding: 18px;
+        width: 200px;
+        height: 300px;
+      }
+
+      #gauge {
+        height: 100%;
+        display: inline-block;
+        zoom: 1;
+      }
+    </style>
+  </body>
+</html>
+
+<!--
+kendoLinearGauge: Doğrusal göstergeler oluşturur, veri görselleştirme ve performans izleme için kullanılır.
+
+-->

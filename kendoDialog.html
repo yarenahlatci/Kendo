@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <div id="dialog"></div>
+      <span
+        id="undo"
+        style="display: none"
+        class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md hide-on-narrow"
+        >Dialog Penceresi</span
+      >
+    </div>
+    <script>
+      $(document).ready(function () {
+        //dialog ve undo değişkenleri, #dialog ve #undo ID'lerine sahip HTML elemanlarını temsil eder. Bu elemanlar Kendo UI Dialog ve bir buton için kullanılır.
+        var dialog = $("#dialog"),
+          undo = $("#undo");
+
+        undo.click(function () {
+          //undo butonuna tıklandığında çalışacak fonksiyonu tanımlar.
+          dialog.data("kendoDialog").open();
+          undo.fadeOut();
+        });
+
+        function onClose() {
+          undo.fadeIn();
+        }
+
+        dialog.kendoDialog({
+          width: "450px",
+          title: "Dialog Penceresi",
+          closable: true, //closable: Dialog'ın kapatılabilir olup olmadığını belirtir (true olarak ayarlanmış, yani kapatma butonu olacak).
+          modal: false, //modal: Dialog'ın modal olup olmadığını belirtir (false, yani arka planı kapatmaz).
+          content: "<p>Merhaba. Hangi işlemi yapmak istersin?<p>", //content: Dialog içinde gösterilecek içeriği belirler. HTML içeriği olarak bir güncelleme mesajı içerir.
+          actions: [
+            { text: "Kaydet" },
+            { text: "Sil" },
+            { text: "Çıkış", primary: true },
+          ],
+          close: onClose, //close: Dialog kapatıldığında çalışacak işlevi belirtir (onClose fonksiyonunu çağırır).
+        });
+      });
+    </script>
+    <style>
+      #example {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #undo {
+        color: brown;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
+<!-- kendoDialog: Diyalog pencereleri oluşturur, kullanıcıdan bilgi almak veya bilgi göstermek için kullanılır. -->

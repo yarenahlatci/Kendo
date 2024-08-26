@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <div id="filemanager"></div>
+  
+    <script>
+        $("#filemanager").kendoFileManager({
+            dataSource: { //dataSource: FileManager'ın veri kaynağını tanımlar.
+                schema: kendo.data.schemas.filemanager, //schema: Kendo UI FileManager için varsayılan veri şemasını kullanır (kendo.data.schemas.filemanager).
+                transport: { //transport: Veri işlemlerinin gerçekleştirileceği URL ve HTTP metodlarını tanımlar.
+                    read: { //read: Verileri okumak için kullanılan URL ve metod.
+                        url: "https://demos.telerik.com/kendo-ui/service/FileManager/Read",
+                        method: "POST"
+                    },
+                    create: { //create: Yeni dosyalar veya klasörler oluşturmak için kullanılan URL ve metod.
+
+                        url: "https://demos.telerik.com/kendo-ui/service/FileManager/Create",
+                        method: "POST"
+                    },
+                    update: { //update: Var olan dosya veya klasörleri güncellemek için kullanılan URL ve metod.
+                        url: "https://demos.telerik.com/kendo-ui/service/FileManager/Update",
+                        method: "POST"
+                    },
+                    destroy: { //destroy: Dosyaları veya klasörleri silmek için kullanılan URL ve metod.
+                        url: "https://demos.telerik.com/kendo-ui/service/FileManager/Destroy",
+                        method: "POST"
+                    }
+                }
+            },
+            uploadUrl: "https://demos.telerik.com/kendo-ui/service/FileManager/Upload", //uploadUrl: Dosya yükleme işlemlerinin gerçekleştirileceği URL.
+            toolbar: { //toolbar: FileManager'daki araç çubuğunu tanımlar.
+                items: [
+                    { name: "createFolder" },
+                    { name: "upload" },
+                    { name: "sortDirection" },
+                    { name: "sortField" },
+                    { name: "changeView" },
+                    { name: "spacer" },
+                    { name: "details" },
+                    { name: "search" }
+                ]
+            },
+            contextMenu: { //contextMenu: Sağ tıklama menüsünü tanımlar.
+                items: [
+                    { name: "rename" }, //rename: Yeniden adlandırma seçeneği
+                    { name: "delete" }  //delete: Silme seçeneği.
+                ]
+            },
+            draggable: true, //draggable: FileManager'daki öğelerin sürüklenebilir olup olmadığını belirtir (true olarak ayarlanmış, yani sürüklenebilir).
+            resizable: true //resizable: FileManager'ın yeniden boyutlandırılabilir olup olmadığını belirtir (true olarak ayarlanmış). 
+        });
+
+        $(document).ready(function () { //var filemanager = $("#filemanager").getKendoFileManager();: #filemanager ID'sine sahip Kendo UI FileManager bileşenini alır.
+            var filemanager = $("#filemanager").getKendoFileManager();
+
+            filemanager.executeCommand({ command: "TogglePaneCommand", options: { type: "preview" } }); //filemanager.executeCommand({...});: FileManager'a komut gönderir. Burada "TogglePaneCommand" komutu, önizleme panelini gösterir veya gizler.
+            $("#details-toggle").getKendoSwitch().toggle();
+        })
+    </script>
+  </body>
+</html>
+<!-- kendoFileManager: Dosya yönetim arayüzü sağlar; dosya yükleme, indirme, taşıma ve silme işlemlerini yönetir. 
+items: Araç çubuğunda bulunan öğeler:
+createFolder: Klasör oluşturma butonu.
+upload: Dosya yükleme butonu.
+sortDirection: Sıralama yönü butonu.
+sortField: Sıralama alanı butonu.
+changeView: Görünüm değiştirme butonu (liste veya küçük resim görünümü gibi).
+spacer: Araç çubuğunda boşluk bırakır.
+details: Ayrıntılar görünümünü gösterir.
+search: Arama butonu.
+
+-->

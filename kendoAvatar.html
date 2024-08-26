@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    <style>
+      .k-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 20px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="avatar-container">
+        <div class="contact-list">Contacts</div>
+        <div class="user-data-container">
+          <div class="k-hbox">
+            <div id="avatar-text" class="avatar-margin-right-5"></div>
+            <div style="margin-left: 10px">
+              <h2 class="contact-name">Jason Smith</h2>
+              <p class="contact-position">UX Desiner</p>
+            </div>
+          </div>
+          <div class="k-hbox">
+            <div id="avatar-text-second" class="avatar-margin-right-5"></div>
+            <div class="avatar-margin-left-10">
+              <h2 class="contact-name">George Porter</h2>
+              <p class="contact-position">Software Engineer</p>
+            </div>
+          </div>
+        </div>
+        <div class="user-data-container k-hbox">
+          <div id="avatar-image-first" class="avatar-margin-right-5"></div>
+          <div class="avatar-margin-left-10">
+            <h2 class="contact-name">Michael Holz</h2>
+            <p class="contact-position">Manager</p>
+          </div>
+          <div id="avatar-image-second" class="avatar-margin-right-5"></div>
+          <div class="avatar-margin-left-10">
+            <h2 class="contact-name">Andre Steward</h2>
+            <p class="contact-position">Product Manager</p>
+          </div>
+        </div>
+        <div class="user-data-container k-hbox">
+          <div id="avatar-icon" class="avatar-margin-right-5"></div>
+          <div class="avatar-margin-left-10">
+            <h2 class="contact-name">Unknown</h2>
+            <p class="contact-position">Not Specified</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $("#avatar-text").kendoAvatar({
+        //Avatar oluşturuyoruz
+        type: "text", //Type text olacak yani yazı yazacağız
+        text: "JS", //Avatar kutucuğunda JS yazısı yazılacak
+      });
+
+      $("#avatar-text-second").kendoAvatar({
+        type: "text",
+        text: "GP",
+      });
+
+      $("#avatar-image-first").kendoAvatar({
+        //3. avatar resmi
+        type: "image", //Type kısmı öncekiler textti şu an ımage yani resim ekleyeceğiz
+        image:
+          "https://demos.telerik.com/kendo-ui/content/web/Customers/RICSU.jpg",
+      });
+
+      $("#avatar-image-second").kendoAvatar({
+        type: "image",
+        image:
+          "https://demos.telerik.com/kendo-ui/content/web/Customers/GOURL.jpg",
+      });
+
+      $("#avatar-icon").kendoAvatar({
+        type: "icon", //Type kısmı öncekilerin text ve ımagedi şu an icon olacak
+        rounded: false,
+        icon: "user",
+      });
+      //rounded: Bu özellik, avatarın köşelerinin yuvarlatılma derecesini kontrol eder. Üç farklı değeri olabilir:
+      // true: Avatar tamamen yuvarlak olur.
+      // false: Avatar köşeleri kare olur.
+      // null: Varsayılan değeri kullanır. Bu durumda, avatarın yuvarlaklık durumu Kendo UI temasına veya varsayılan stil ayarlarına bağlıdır.
+    </script>
+    <style>
+      #avatar-container {
+        width: 450px;
+        margin: auto;
+        padding: 4px 10px;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26),
+          0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+          0px 3px 1px -2px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-position {
+        margin: 0px;
+        font-size: 0.8em;
+      }
+
+      .contact-name {
+        font-size: 1.3em;
+        font-weight: normal;
+        margin-top: 5px;
+      }
+
+      .contact-list {
+        text-align: center;
+        padding: 4px;
+        font-size: 20px;
+      }
+
+      .user-data-container {
+        padding: 8px 14px;
+        margin-bottom: 4px;
+        box-shadow: 0 1px 2px #ccc;
+      }
+
+      .k-hbox {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .avatar-margin-right-5 {
+        margin-right: 5px;
+      }
+
+      .avatar-margin-left-10 {
+        margin-left: 10px;
+      }
+      .k-avatar {
+        border: 2px solid #000000; /* Kenar rengi ve kalınlığı */
+      }
+      #avatar-image-first {
+        width: 200px; /* Genişlik */
+      }
+      #avatar-image-second {
+        width: 200px; /* Genişlik */
+      }
+    </style>
+  </body>
+</html>

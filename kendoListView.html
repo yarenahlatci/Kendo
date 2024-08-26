@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    <style>
+      #listView {
+        width: 400px;
+        margin: 0 auto;
+      }
+      .k-listview-item {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      .k-listview-item:hover {
+        background-color: blueviolet;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="listView"></div>
+
+    <script>
+      $(document).ready(function () {
+        //Sayfa yüklendiğinde çalışacak kodu içerir. Bu, DOM içeriği yüklendiğinde ListView widget'ını başlatır
+        $("#listView").kendoListView({
+          //Bu, id değeri listView olan bir öğeye Kendo UI ListView widget'ını uygular.
+          dataSource: [
+            //ListView'in veri kaynağını belirtir. Bu örnekte, bir dizi nesne içerir. Her nesne Name ve Age özelliklerine sahiptir.
+            { Name: "Anna", Age: 28 },
+            { Name: "Mike", Age: 32 },
+            { Name: "Sara", Age: 24 },
+            { Name: "Tom", Age: 40 },
+            { Name: "Anna", Age: 28 },
+            { Name: "Mike", Age: 32 },
+            { Name: "Sara", Age: 24 },
+            { Name: "Tom", Age: 40 },
+          ],
+          template: "<div class='k-listview-item'>#= Name # - #= Age #</div>", //ListView öğelerinin nasıl görüneceğini belirten bir şablon sağlar.Bu örnekte, her liste öğesi bir div içinde Name ve Age bilgilerini gösterir.
+        });
+      });
+    </script>
+  </body>
+</html>
+<!-- kendoListView: Liste verilerini özel bir düzenle görüntülemek için kullanılır; grid’den daha basit ve esnektir. -->

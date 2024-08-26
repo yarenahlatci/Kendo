@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="grid"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#grid").kendoGrid({
+          //Idsi #grid olana kendoGridi başlatır.
+          dataSource: {
+            //kendoGride aktarılacak veriler
+            data: [
+              { Name: "John", Age: 30, Job: "Computer Engineer" },
+              { Name: "Jane", Age: 25, Job: "Computer Engineer" },
+              { Name: "Paul", Age: 35, Job: "Computer Engineer" },
+              { Name: "John", Age: 30, Job: "Computer Engineer" },
+              { Name: "Jane", Age: 25, Job: "Computer Engineer" },
+              { Name: "Paul", Age: 35, Job: "Computer Engineer" },
+              { Name: "John", Age: 30, Job: "Computer Engineer" },
+              { Name: "Jane", Age: 25, Job: "Computer Engineer" },
+              { Name: "Paul", Age: 35, Job: "Computer Engineer" },
+            ],
+            schema: {
+              model: {
+                fields: {
+                  Name: { type: "string" }, //Verilerin veri tiplerini söyleriz
+                  Age: { type: "number" },
+                  Job: { type: "string" },
+                },
+              },
+            },
+          },
+          columns: [
+            //Columns başlıkları
+            { field: "Name", title: "Name" },
+            { field: "Age", title: "Age" },
+            { field: "Job", title: "Job" },
+          ],
+          filterable: {
+            mode: "row",
+          },
+          height: 400,
+        });
+      });
+    </script>
+  </body>
+</html>
+<!-- kendoFilter: Veri filtreleme işlemleri için kullanılır, özellikle grid ve liste bileşenleriyle birlikte kullanılır.
+
+kendoFilterMenu: Grid gibi bileşenler için filtreleme menüleri sağlar. -->

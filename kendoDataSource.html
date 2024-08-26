@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="grid"></div>
+
+    <script>
+      $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+          data: [
+            //Veri Kaynağı (DataSource) Oluşturma:
+            { id: 1, name: "John", age: 30 },
+            { id: 2, name: "Jane", age: 25 },
+            { id: 3, name: "Doe", age: 40 },
+            { id: 1, name: "John", age: 30 },
+            { id: 2, name: "Jane", age: 25 },
+            { id: 3, name: "Doe", age: 40 },
+            { id: 1, name: "John", age: 30 },
+            { id: 2, name: "Jane", age: 25 },
+            { id: 3, name: "Doe", age: 40 },
+            { id: 1, name: "John", age: 30 },
+            { id: 2, name: "Jane", age: 25 },
+            { id: 3, name: "Doe", age: 40 },
+          ],
+          schema: {
+            //schema: Veri modelini tanımlar. Burada, id, name, ve age alanlarının türlerini belirtir. Bu, veri kaynağının doğru şekilde işlenmesini sağlar.
+            model: {
+              fields: {
+                id: { type: "number" }, //Id type number yani sayı olacak
+                name: { type: "string" }, //Name type kısmı string yani metin olacak
+                age: { type: "number" }, //Age type kısmı number yani sayı olacak
+              },
+            },
+          },
+        });
+
+        $("#grid").kendoGrid({
+          dataSource: dataSource, //dataSource: Yukarıda tanımlanan dataSource nesnesini belirtir. Grid bu veri kaynağını kullanarak verileri görüntüler.
+
+          columns: [
+            //columns: Grid'in sütunlarını tanımlar. Her sütun field ve title özelliklerini içerir:
+            { field: "id", title: "ID" },
+            { field: "name", title: "Name" },
+            { field: "age", title: "Age" },
+          ],
+        });
+      });
+      // field: Veri kaynağındaki hangi alanın bu sütun için kullanılacağını belirtir.
+      // title: Sütunun başlığını belirtir.
+    </script>
+    <style>
+      #grid {
+        background-color: blue;
+        padding: 5px;
+      }
+    </style>
+  </body>
+</html>
+<!--
+kendoDataSource: Veri yönetimi için kullanılır; verileri almak, sıralamak, filtrelemek ve sayfalamak için veri kaynağı sağlar.
+-->

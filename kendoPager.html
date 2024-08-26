@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="grid"></div>
+    <div id="pager"></div>
+
+    <script>
+      $(document).ready(function () {
+        //Sayfanın DOM içeriği tamamen yüklendiğinde çalışacak kodu içerir.
+        var dataSource = new kendo.data.DataSource({
+          //Veri kaynağını tanımlar ve verileri sayfalar halinde yönetir.
+          pageSize: 5, //pageSize: Her sayfada gösterilecek veri sayısını belirtir (5).
+          data: [
+            //data: Grid için kullanılacak veri kümesi.
+            { Name: "John", Age: 30 },
+            { Name: "Jane", Age: 25 },
+            { Name: "Paul", Age: 35 },
+            { Name: "Anna", Age: 28 },
+            { Name: "Mike", Age: 32 },
+            { Name: "Sara", Age: 24 },
+            { Name: "Tom", Age: 40 },
+            { Name: "John", Age: 30 },
+            { Name: "Jane", Age: 25 },
+            { Name: "Paul", Age: 35 },
+            { Name: "Anna", Age: 28 },
+            { Name: "Mike", Age: 32 },
+            { Name: "Sara", Age: 24 },
+            { Name: "Tom", Age: 40 },
+          ],
+          schema: {
+            //schema: Verilerin yapılandırmasını belirler. Bu örnekte, Name bir string, Age ise bir number olarak tanımlanmıştır.
+            model: {
+              fields: {
+                Name: { type: "string" },
+                Age: { type: "number" },
+              },
+            },
+          },
+          page: 1, //page: Başlangıç sayfasını belirtir (1).
+        });
+
+        $("#grid").kendoGrid({
+          //Kendo UI Grid widget'ını oluşturur ve yapılandırır.
+          dataSource: dataSource, //dataSource: Grid'in veri kaynağını belirtir.
+          pageable: false, //pageable: Sayfalandırmayı etkinleştiren veya devre dışı bırakan özelliktir. Burada false olarak ayarlanmıştır, yani sayfalandırma Grid içinde yapılmayacak.
+          columns: [
+            //columns: Grid'de görüntülenecek sütunları tanımlar. Bu örnekte, Name ve Age sütunları tanımlanmıştır.
+            { field: "Name", title: "Name" },
+            { field: "Age", title: "Age" },
+          ],
+          height: 400, //Grid yüksekliğini belirtir
+        });
+
+        $("#pager").kendoPager({
+          //Kendo UI Pager widget'ını oluşturur ve yapılandırır.
+          dataSource: dataSource, //dataSource: Pager'ın veri kaynağını belirtir. Grid ile aynı veri kaynağı kullanılır.
+          pageSizes: [5, 10, 20], //pageSizes: Sayfa başına gösterilecek öğe sayıları seçeneğini sunar (5, 10, 20).
+          messages: {
+            //messages: Pager'ın mesajlarını özelleştirir. Burada, toplamda kaç öğe olduğunu ve hangi öğelerin gösterildiğini belirten mesajlar ayarlanmıştır
+            display: "{0} - {1} of {2} items",
+            empty: "No items to display",
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
+<!-- kendoPager: Sayfalandırma işlevselliği sağlar; grid veya liste bileşenlerinde kullanılır. 
+ 
+.-->

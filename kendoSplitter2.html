@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+        <div id="vertical">
+            <div id="top-pane">
+                <div id="horizontal" style="height: 100%; width: 100%;">
+                    <div id="left-pane">
+                        <div class="pane-content">
+                            <h3>Inner splitter / left pane</h3>
+                            <p>Resizable and collapsible.</p>
+                        </div>
+                    </div>
+                    <div id="center-pane">
+                        <div class="pane-content">
+                            <h3>Inner splitter / center pane</h3>
+                            <p>Resizable only.</p>
+                        </div>
+                    </div>
+                    <div id="right-pane">
+                        <div class="pane-content">
+                            <h3>Inner splitter / right pane</h3>
+                            <p>Resizable and collapsible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="middle-pane">
+                <div class="pane-content">
+                    <h3>Outer splitter / middle pane</h3>
+                    <p>Resizable only.</p>
+                </div>
+            </div>
+            <div id="bottom-pane">
+                <div class="pane-content">
+                    <h3>Outer splitter / bottom pane</h3>
+                    <p>Non-resizable and non-collapsible.</p>
+                </div>
+            </div>
+        </div>
+    <script>
+                        $(document).ready(function() {
+                    $("#vertical").kendoSplitter({
+                        orientation: "vertical", //Dikey Splitter (#vertical):
+                        panes: [ //İlk iki bölme yeniden boyutlandırılamaz ve çökertilemez, üçüncü bölme hem yeniden boyutlandırılamaz hem de çökertilemez.
+                            { collapsible: false },
+                            { collapsible: false, size: "100px" }, //Orta bölmenin yüksekliği 100 piksel olarak ayarlanmış.
+                            { collapsible: false, resizable: false, size: "100px" }
+                        ]
+                    });
+
+                    $("#horizontal").kendoSplitter({ //Yatay Splitter (#horizontal):
+                        panes: [ //İlk ve üçüncü bölmeler çökertilebilir, ancak ortadaki bölme çökertilemez
+                            { collapsible: true },
+                            { collapsible: false },
+                            { collapsible: true}
+                        ]
+                    });
+                });
+    </script>
+     <style>
+        #vertical {
+            height: 380px;
+            margin: 0 auto;
+        }
+
+        #middle-pane { color: #000; background-color: #ccc; }
+        #bottom-pane { color: #000; background-color: #aaa; }
+        #left-pane, #center-pane, #right-pane {
+            color: #000;
+            background-color: #F5F5F5;
+        }
+
+        .pane-content {
+            padding: 0 10px;
+        }
+    </style>
+  </body>
+</html>

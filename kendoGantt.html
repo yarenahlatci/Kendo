@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="gantt"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#gantt").kendoGantt({
+          //Bu satır, HTML sayfasında id değeri gantt olan bir öğeye Kendo UI Gantt widget'ını uygular.
+          dataSource: [
+            {
+              id: 1, //id: Görevin benzersiz kimliği.
+              text: "Proje Başlangıcı", //text: Görev adı veya açıklaması.
+              start: new Date(), //start: Görevin başlangıç tarihi.
+              end: new Date(new Date().setDate(new Date().getDate() + 10)), //end: Görevin bitiş tarihi.
+            },
+            {
+              id: 2,
+              text: "Araştırma",
+              start: new Date(),
+              end: new Date(new Date().setDate(new Date().getDate() + 20)),
+            },
+          ],
+          columns: [
+            //Gantt şemasındaki sütunları yapılandırır.
+            { field: "text", title: "Görev", width: 250 }, //field: Veri kaynağındaki hangi alanın bu sütunda gösterileceğini belirtir.//title: Sütunun başlığını belirler.
+            { field: "start", title: "Başlangıç", format: "{0:yyyy-MM-dd}" }, //start: Görevin başlangıç tarihi.
+            { field: "end", title: "Bitiş", format: "{0:yyyy-MM-dd}" }, //end: Görevin bitiş tarihi. format: Tarihlerin nasıl biçimlendirileceğini belirtir. {0:yyyy-MM-dd} formatı, tarihi "YYYY-MM-DD" formatında gösterir.
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoGantt: Proje yönetimi ve zamanlama işlevleri için bir Gantt şeması bileşeni sağlar.
+-->

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <label for="progressbar">İlerleme:</label>
+      <div id="progressbar"></div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        //$(document).ready(function () {...});: Bu fonksiyon, sayfanın tam olarak yüklendiğinde çalışacak kodları içerir.
+        $("#progressbar").kendoProgressBar({
+          //$("#progressbar").kendoProgressBar({...});: #progressbar ID'sine sahip div elemanını Kendo UI ProgressBar widget'ı ile başlatır. Bu widget, ilerleme çubuğunu oluşturur ve yönetir.
+          value: 75, //value: 75: İlerleme çubuğunun mevcut değerini belirtir. Bu örnekte, ilerleme çubuğu %75 dolu olarak ayarlanmış.
+          max: 100, //max: 100: İlerleme çubuğunun maksimum değerini belirtir. Burada maksimum değer 100 olarak belirlenmiştir, yani ilerleme çubuğu %100 dolu olabilecektir.
+        });
+      });
+    </script>
+    <style>
+      label {
+        font-size: 16px;
+        border: 2px solid red;
+        padding: 2px;
+        border-radius: 10px;
+        letter-spacing: 1px;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </body>
+</html>
+<!--
+kendoProgressBar: İlerleme durumunu gösteren bir ilerleme çubuğu oluşturur.
+-->

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    <style>
+      #stepWizard {
+        width: 500px;
+        margin: 0 auto;
+      }
+      .k-step {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+        <div class="demo-section wide">
+            <nav id="stepper"></nav>
+        </div>
+    <script>
+   $(document).ready(function () {
+            $("#stepper").kendoStepper({
+                linear:false, // linear: false: Bu ayar, adımların lineer (sıralı) olup olmayacağını belirler. false olduğunda, adımlar arasında sıçramalar yapabilir ve adımların sıralı ilerlemesi zorunlu değildir
+                steps: [{ //steps: Bu özellik, stepper'daki adımları tanımlar. Her adım için aşağıdaki özellikler belirtilmiştir:
+                    label: "Personal Info", //label: Adımın etiketi.
+                    icon:"user" //icon: Adımın simgesi.
+                },{
+                    label: "Education",
+                    icon:"book",
+                    error: true //error: Eğer true ise, adımda bir hata olduğunu belirtir (adım genellikle kırmızı bir hata simgesiyle gösterilir).
+                },{
+                    label: "Experience",
+                    icon:"flip-vertical",
+                    selected: true //selected: Eğer true ise, bu adım seçilmiş olarak gösterilir.
+                },{
+                    label: "Attachments",
+                    icon: "paperclip"
+                },{
+                    label: "Review",
+                    icon:"eye",
+                    enabled: false //enabled: Eğer false ise, adım devre dışı bırakılmış olarak gösterilir (tıklanamaz).
+                },{
+                    label: "Submit",
+                    icon: "file-add"
+                }]
+            });
+        });
+    </script>
+  </body>
+</html>
+<!-- kendoStepper: Adım tabanlı formlar veya süreçler için adımları gösteren bir bileşen sunar. 
+Personal Info: İlk adım, "Kişisel Bilgiler", bir kullanıcı simgesi (user) ile gösterilir.
+Education: İkinci adım, "Eğitim", bir kitap simgesi (book) ile gösterilir ve bu adımda bir hata olduğu belirtilmiştir.
+Experience: Üçüncü adım, "Deneyim", bir döndürme simgesi (flip-vertical) ile gösterilir ve bu adım seçilmiş olarak işaretlenmiştir.
+Attachments: Dördüncü adım, "Ekler", bir ataş simgesi (paperclip) ile gösterilir.
+Review: Beşinci adım, "Gözden Geçirme", bir göz simgesi (eye) ile gösterilir ve bu adım devre dışı bırakılmış olarak işaretlenmiştir.
+Submit: Son adım, "Gönder", bir dosya ekleme simgesi (file-add) ile gösterilir.
+
+-->

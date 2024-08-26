@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="scheduler"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#scheduler").kendoScheduler({ //Bu satır, id değeri scheduler olan HTML elemanını bir Kendo UI Scheduler bileşeni olarak başlatır.
+          date: new Date(), //Bu ayar, Scheduler'ın başlangıç tarihi olarak günün tarihini ayarlar. new Date() ifadesi, JavaScript'te mevcut tarihi ve saati döndüren bir komuttur.
+          height: 600, //Bu ayar, Scheduler bileşeni için sabit bir yükseklik (600 piksel) belirler.
+          views: ["day", "week", "month"], //Scheduler için görünüm modlarını tanımlar. Bu örnekte, kullanıcılar etkinlikleri "gün", "hafta" ve "ay" görünümlerinde görebilir.
+          editable: true, //Bu ayar, kullanıcıların Scheduler üzerinde etkinlik eklemesine, düzenlemesine ve silmesine olanak tanır.
+          dataSource: new kendo.data.SchedulerDataSource({ //Scheduler'a etkinlikleri sağlayan veri kaynağını tanımlar. kendo.data.SchedulerDataSource, Kendo UI Scheduler için özel olarak oluşturulmuş bir veri kaynağı türüdür.
+            data: [ //dataSource içinde tanımlanan data özelliği, Scheduler’a eklenecek olan etkinlikleri içerir. Bu veri, etkinliklerin başlangıç ve bitiş tarihleri, başlık gibi bilgileri tutar.
+              {
+                id: 1,
+                start: new Date("2024/08/26 10:00"),
+                end: new Date("2024/08/26 12:00"),
+                title: "Toplantı",
+              },
+/*id: Etkinliğin benzersiz kimlik numarasıdır.
+start: Etkinliğin başlangıç tarih ve saatidir.
+end: Etkinliğin bitiş tarih ve saatidir.
+title: Etkinliğin başlığıdır ("Toplantı")*/
+              {
+                id: 2,
+                start: new Date("2024/08/26 10:00"),
+                end: new Date("2024/08/26 12:00"),
+                title: "Toplantı 2",
+              },
+            ],
+          }),
+          startDate: new Date("2024/08/25"), //Scheduler'ın başlangıç tarihini tanımlar. Bu örnekte, Scheduler 25 Ağustos 2024 tarihinde başlar.
+          endDate: new Date("2024/08/26"), //Scheduler'ın bitiş tarihini tanımlar. Bu örnekte, Scheduler 26 Ağustos 2024 tarihinde sona erer.
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoScheduler: Etkinlik ve takvim yönetimi için kullanılır, zamanlama ve planlama işlevleri sunar.
+-->

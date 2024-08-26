@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="https://demos.telerik.com/kendo-ui/upload/index" />
+    <style>
+      html {
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <form method="post" action="/kendo-ui/upload/submit">
+          <div class="demo-section">
+              <input name="files" id="files" type="file" aria-label="files" />
+              <p style="padding-top: 1em; text-align: right">
+                  <button type="submit" class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">Submit</button>
+              </p>
+          </div>
+      </form>
+
+    <script>
+         $(document).ready(function() { // HTML belgesi tamamen yüklendiğinde ve hazır olduğunda çalıştırılacak bir fonksiyon tanımlar. Bu, sayfa yüklendikten sonra JavaScript'in çalışmasını sağlar.
+            $("#files").kendoUpload(); //$("#files").kendoUpload();: Bu satır, sayfadaki id değeri "files" olan HTML öğesini seçer ve bu öğeye Kendo UI'nin "Upload" bileşenini uygular.
+        });
+    </script>
+
+  </body>
+</html>
+<!-- kendoUpload: Dosya yükleme işlevi sağlar. -->

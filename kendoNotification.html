@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <button id="showNotification">Bildirim Göster</button>
+    <div id="notification"></div>
+
+    <script>
+      $(document).ready(function () {
+        var notification = $("#notification")
+          .kendoNotification({
+            position: {
+              //position özelliği, bildirimin ekranda nerede gösterileceğini belirler.
+              pinned: true,
+              bottom: 30,
+              right: 30,
+            },
+          })
+          .data("kendoNotification");
+
+        $("#showNotification").click(function () {
+          //Tıklandığı zaman yazılacak metin
+          notification.show("Bu bir bildirim mesajıdır.");
+        });
+      });
+    </script>
+    <style>
+      button {
+        padding: 10px;
+        border-radius: 3px;
+        border: 2px solid rgb(240, 79, 106);
+        background-color: rgb(2, 175, 118);
+        color: white;
+        letter-spacing: 3px;
+      }
+    </style>
+  </body>
+</html>
+<!--
+kendoNotification: Kullanıcıya bildirim mesajları göstermek için kullanılır.
+
+-->

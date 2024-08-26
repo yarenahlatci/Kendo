@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <input id="timePicker" />
+
+    <script>
+      $(document).ready(function () {
+        //Bu, sayfanın yüklenmesi tamamlandığında çalışacak bir jQuery kodu bloğudur.
+        $("#timePicker").kendoTimePicker({
+          //#timePicker ID'sine sahip HTML öğesi için Kendo UI TimePicker bileşeni oluşturur ve yapılandırır.
+          value: new Date(), //TimePicker'ın başlangıç değeri olarak mevcut tarihi ve saati ayarlar. Bu, TimePicker'ın başlatıldığında gösterdiği varsayılan zamanı belirler.
+          change: function () {
+            //TimePicker'da zaman seçildiğinde veya değiştirildiğinde çalışacak olan olay işleyicisidir.
+            alert("Zaman seçildi: " + this.value()); //Bu işleyici, seçilen zamanı bir uyarı penceresinde gösterir.Bu, TimePicker bileşeninin şu anki değerini alır ve uyarı penceresinde gösterir.
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
+<!-- 
+kendoTimePicker: Kullanıcıların belirli bir zaman seçmesine olanak tanıyan bir zaman seçici bileşeni sağlar. -->

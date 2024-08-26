@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+        <div class="qr-wrapper">
+            <div class="demo-section">
+                <h3>E-mail</h3>
+                <div id="qrMail"></div>
+            </div>
+            <div class="demo-section">
+                <h3>URL</h3>
+                <div id="qrUrl"></div>
+            </div>
+            <div class="demo-section">
+                <h3>Telephone</h3>
+                <div id="qrTelephone"></div>
+            </div>
+            <div class="demo-section">
+                <h3>Geo Location</h3>
+                <div id="qrGeoLocation"></div>
+            </div>
+        </div>
+    <script>
+        $(document).ready(function () {
+
+$("#qrMail").kendoQRCode({ //Idsi #qrMail olana kendoQRCode oluştur.
+    value: "mailto:clientservice@telerik.com", //QRcode oluşturulacak mail adresi
+    size: 120, //QRCode boyutu
+    color: "#e15613", //QRCode rengi
+    background: "transparent", //arka plan renginin şeffaf olduğunu belirtir
+});
+
+$("#qrUrl").kendoQRCode({ //qrUrl ıdsine kendoQRCode oluştur.
+    value: "https://demos.telerik.com/kendo-ui/qrcode/index", //Url verilir yani QRCode içinde bu value olacak
+    errorCorrection: "M", //Hata düzeltme düzeyi, "L" - kod sözcüklerinin yaklaşık %7'si geri yüklenebilir,"M" - kod sözcüklerinin yaklaşık %15'i geri yüklenebilir,"Q" - Kod sözcüklerinin yaklaşık %25'i geri yüklenebilir,"H" - kod sözcüklerinin yaklaşık %30'u geri yüklenebilir.
+    size: 120, //QRCode boyutu
+    border: { //QRCode border özelliği
+        color: "#000000",
+        width: 3
+    }
+});
+
+$("#qrTelephone").kendoQRCode({ //ıdsi qrTelephone olana kendoQRCode özelliği ver
+    value: "tel:555 555 5555", //Telefon değerini yazarız
+    errorCorrection: "Q", //"Q" - Kod sözcüklerinin yaklaşık %25'i geri yüklenebilir.
+    size: 120, //QR Code boyutu
+    color: "#67a814",
+    border: {
+        color: "#67a814",
+        width: 5
+    }
+});
+
+$("#qrGeoLocation").kendoQRCode({ //Lokasyon bilgisi veren QrCode
+    value: "geo:42.65049,23.37925,100", //Lokasyon değeri
+    errorCorrection: "H", //"H" - kod sözcüklerinin yaklaşık %30'u geri yüklenebilir.
+    size: 120,
+    color: "#166a83"
+
+});
+});
+    </script>
+        <style>
+            .demo-section {
+                display: inline-block;
+                margin: 15px 30px 15px 0;
+            }
+    
+            .k-qrcode {
+                display: inline-block;
+                margin: 10px 0 0;
+                border: none;
+            }
+            #example{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+        </style>
+  </body>
+</html>

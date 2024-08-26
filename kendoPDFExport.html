@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <button id="exportToPDF">PDF'e Aktar</button>
+    <div id="grid"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#grid").kendoGrid({
+          //İlk olarak kendoGrid yapısını kullanarak bir grid oluşturuyoruz
+          dataSource: {
+            //Veri kaynağını tanımlar
+            data: [
+              //Veriler
+              { Name: "John", Age: 30 },
+              { Name: "Jane", Age: 25 },
+              { Name: "Paul", Age: 35 },
+            ],
+            schema: {
+              //Veri tiplerini ayarlarız. Name kısmı string,age kısmı number değer alacak
+              model: {
+                fields: {
+                  Name: { type: "string" },
+                  Age: { type: "number" },
+                },
+              },
+            },
+          },
+          columns: [
+            //Sütun adlarını belirleriz
+            { field: "Name", title: "Name" },
+            { field: "Age", title: "Age" },
+          ],
+          height: 400,
+        });
+
+        $("#exportToPDF").kendoButton({
+          //#exportToPDF ID'sine sahip HTML elemanını Kendo UI Button widget'ı olarak tanımlar. Bu buton, PDF olarak dışa aktarma işlemini başlatacaktır.
+          click: function () {
+            //Butona tıklandığında çalışacak fonksiyonu belirtir. Bu fonksiyon, butona tıklama olayını dinler ve tetikler.
+            var grid = $("#grid").data("kendoGrid"); //#grid ID'sine sahip HTML elemanındaki Kendo Grid widget'ını alır. Bu, PDF'ye dönüştürmek istediğiniz grid'yi temsil eder.
+            grid.saveAsPDF(); //Kendo Grid'in saveAsPDF metodunu çağırır. Bu metod, grid verilerini PDF formatında dışa aktarır ve genellikle bir indirme penceresi açar veya PDF dosyasını doğrudan indirir.
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
+<!-- kendoPDFExport: Sayfa veya verileri PDF formatında dışa aktarma işlevselliği sunar. -->

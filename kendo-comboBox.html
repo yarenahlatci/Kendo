@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <input id="combobox" />
+
+    <script>
+      $(document).ready(function () {
+        $("#combobox").kendoComboBox({
+          dataSource: ["Red", "Green", "Blue", "Yellow"], //Bu özellik, ComboBox içerisinde görüntülenecek verileri tanımlar. Bu örnekte, ["Red", "Green", "Blue", "Yellow"] dizisi, açılır listede yer alacak renkleri temsil eder.
+          placeholder: "Bir renk seçin...", //Bu özellik, ComboBox kutusunun içindeki varsayılan metni tanımlar. Kullanıcı herhangi bir seçim yapmadan önce görüntülenen metindir.
+          filter: "contains", //Bu özellik, kullanıcı bir şeyler yazdığında, listede hangi öğelerin gösterileceğini belirler. filter: "contains" ayarı, kullanıcının yazdığı metnin liste öğelerinde geçip geçmediğine bakar.Örneğin, kullanıcı "re" yazarsa, "Red" gösterilecek, ancak "Green" gösterilmeyecektir, çünkü "re" kısmı "Green" içinde geçmez.
+          suggest: true, //Bu özellik, kullanıcı bir şeyler yazarken otomatik tamamlama önerilerinin görünmesini sağlar.suggest: true olarak ayarlandığında, kullanıcı bir şeyler yazmaya başladığında, ComboBox ilgili bir öğeyi önerir ve o öğeyi seçmelerine olanak tanır.
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoComboBox: Kullanıcıların metin girmesine ve listeden seçim yapmasına izin veren bir birleşik giriş kutusu sağlar.
+
+-->

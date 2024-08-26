@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+    
+  </head>
+  <body>
+    <div id="example">
+      <div class="demo-section">
+          <h4>ButtonGroup with text and icon</h4>
+          <div id="player">
+              <span data-icon="play">
+                  Play
+              </span>
+              <span data-icon="pause">
+                  Pause
+              </span>
+              <span data-icon="stop">
+                  Stop
+              </span>
+          </div>
+          <br /><br />
+          <h4>ButtonGroup only with icons</h4>
+          <div id="player2">
+              <span data-icon="play">
+              </span>
+              <span data-icon="pause">
+              </span>
+              <span data-icon="stop">
+              </span>
+          </div>
+      </div>
+      <script>
+        $(document).ready(function () {
+            $("#player").kendoButtonGroup();
+            $("#player2").kendoButtonGroup();
+        });
+    </script>
+    <style>
+              .demo-section {
+            text-align: center;
+            margin: 5px;
+            padding: 5px;
+        }
+        h4{
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          color: crimson;
+        }
+        span{
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+    </style>
+  </body>
+</html>
+<!--
+kendoButtonGroup: Bir dizi düğme sunar, kullanıcının tek bir seçim yapmasına veya birden çok seçeneği işaretlemesine izin verir.
+-->

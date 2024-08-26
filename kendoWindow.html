@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <button id="openWindow">Pencereyi Aç</button>
+    <div id="window" style="display: none">
+      <p>Hello World!</p>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // Kendo Window bileşenini başlatır ve yapılandırır.
+        var myWindow = $("#window")
+          .kendoWindow({
+            width: "500px", // Pencerenin genişliği
+            title: "Açılır Pencere", // Pencerenin başlığı
+            visible: false, // Pencerenin başlangıçta görünmemesi
+            actions: [
+              "Pin",
+              "Minimize",
+              "Maximize",
+              "Restore",
+              "Refresh",
+              "Close",
+            ], // Pencerede bulunacak aksiyon düğmeleri
+          })
+          .data("kendoWindow"); // KendoWindow nesnesini alır
+
+        // Bir butona tıklandığında pencereyi açar ve ortalar
+        $("#openWindow").click(function () {
+          myWindow.center().open(); // Pencereyi ortalar ve açar
+        });
+      });
+    </script>
+    <style>
+      #openWindow {
+        padding: 5px;
+        letter-spacing: 3px;
+        background-color: darkslateblue;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      #openWindow:hover {
+        background-color: chocolate;
+      }
+    </style>
+  </body>
+</html>
+<!--
+kendoWindow: Açılır pencereler (modaller) oluşturur; diyaloglar, bildirimler veya kullanıcı etkileşimleri için kullanılır.
+
+Yapı: kendoWindow fonksiyonu, pencere genişliği, başlık ve eylemler gibi çeşitli seçeneklerle yapılandırılır.
+"Pin": Pencereyi ekranın köşesine sabitler.
+"Minimize": Pencereyi simge durumuna küçültür.
+"Maximize": Pencereyi ekranın tamamını kaplayacak şekilde büyütür.
+"Close": Pencereyi kapatır.
+Diğer olası aksiyon düğmeleri şunlar olabilir:
+
+"Restore": Pencereyi maximize durumundan geri getirir (restore eder). Bu genellikle maximize ile birlikte kullanılır, ancak ayrı olarak da tanımlanabilir.
+"Refresh": Pencereyi yeniden yükler (veri güncelleme veya benzeri işlemler için).
+-->

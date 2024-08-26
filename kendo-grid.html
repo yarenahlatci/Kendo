@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="grid"></div>
+
+    <script> //dataSource ile veriler sağlanır
+      $(document).ready(function () {
+        $("#grid").kendoGrid({
+          dataSource: { //Gride veri sağlayan kaynak. Veri kümesini içerir.
+            data: [ //Gridde gösterilecek verileri buraya gireriz.
+              { ProductName: "Tea", Category: "Beverages", Price: 10 },
+              { ProductName: "Coffee", Category: "Beverages", Price: 15 },
+              { ProductName: "Soda", Category: "Beverages", Price: 5 },
+              { ProductName: "Tea", Category: "Beverages", Price: 10 },
+              { ProductName: "Coffee", Category: "Beverages", Price: 15 },
+              { ProductName: "Soda", Category: "Beverages", Price: 5 },
+              { ProductName: "Tea", Category: "Beverages", Price: 10 },
+              { ProductName: "Coffee", Category: "Beverages", Price: 15 },
+              { ProductName: "Soda", Category: "Beverages", Price: 5 },
+              { ProductName: "Tea", Category: "Beverages", Price: 10 },
+              { ProductName: "Coffee", Category: "Beverages", Price: 15 },
+              { ProductName: "Soda", Category: "Beverages", Price: 5 },
+            ],
+            pageSize: 5, //Her sayfada gösterilecek öğe sayısını belirtir. pageSize: 5 olduğu için sayfada 5 ürün gözükür.
+          },
+          pageable: true, //Diğer sayfaya geçiş yapar. İlk sayfada 5 ürün var ise 2.sayfadada 5 ürün gözükür.
+          sortable: true, //Grid'deki sütunları sıralanabilir hale getirir. sortable: true ayarı ile kullanıcılar herhangi bir sütuna tıklayarak verileri artan veya azalan sırada sıralayabilir.
+          filterable: true, //Grid'deki sütunlar için filtreleme özelliğini etkinleştirir. filterable: true ayarı, sütun başlıklarının altında filtreleme alanları ekleyerek, kullanıcıların belirli kriterlere göre verileri filtrelemesine olanak tanır.
+          columns: [ //Grid'de gösterilecek sütunları tanımlar. Her sütun bir field ve title içerebilir:
+            { field: "ProductName", title: "Ürün Adı" }, //field: Verinin hangi özelliğini göstereceğini belirtir.
+            { field: "Category", title: "Kategori" }, //title: Sütunun başlığını tanımlar.
+            { field: "Price", title: "Fiyat", format: "{0:c}" }, //format: Sütundaki verinin biçimini tanımlar. Örneğin, format: "{0:c}" ifadesi, fiyatları para birimi olarak formatlar.
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoGrid: Tablo benzeri bir yapı oluşturur ve verileri sayfalama, sıralama, filtreleme gibi özelliklerle görüntüler.
+
+Yapı: dataSource ile veriler sağlanır ve grid bileşeni çeşitli sütunlar tanımlanarak yapılandırılır.
+-->

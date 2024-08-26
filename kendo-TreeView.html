@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="treeview"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#treeview").kendoTreeView({ //TreeView bileşenine veri sağlayan kaynak
+          dataSource: [
+            { text: "Fruits", items: [{ text: "Apple" }, { text: "Banana" }] }, //text: Her düğümün adını belirtir.items: Alt düğümleri (children) tanımlar. Örneğin, "Fruits" ana düğümünün altında "Apple" ve "Banana" alt düğümleri vardır.
+            {
+              text: "Vegetables", //Düğüm adı Vegetablesdir
+              items: [{ text: "Carrot" }, { text: "Lettuce" }], //Alt düğümlerinin adı Carrot ve Lettucedir
+            },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+kendoTreeView: Hiyerarşik veri yapıları için ağaç görünümleri oluşturur, veri yapısını dallara ayırarak gösterir.
+
+Çıktı Görünümü
+Fruits
+  Apple
+  Banana
+Vegetables
+  Carrot
+  Lettuce
+-->

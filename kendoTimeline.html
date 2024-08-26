@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link
+      href="https://kendo.cdn.telerik.com/themes/8.2.1/default/default-main.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2024.3.806/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <div id="timeline"></div>
+
+    <script>
+      $(document).ready(function () {
+        $("#timeline").kendoTimeline({
+          dataSource: [
+            {
+              date: new Date(2018, 0, 1),
+              title: "Olay 1",
+              description: "Açıklama 1",
+            },
+            {
+              date: new Date(2019, 1, 15),
+              title: "Olay 2",
+              description: "Açıklama 2",
+            },
+            {
+              date: new Date(2020, 5, 30),
+              title: "Olay 3",
+              description: "Açıklama 3",
+            },
+            {
+              date: new Date(2021, 10, 5),
+              title: "Olay 4",
+              description: "Açıklama 4",
+            },
+            {
+              date: new Date(2022, 10, 5),
+              title: "Olay 5",
+              description: "Açıklama 5",
+            },
+            {
+              date: new Date(2023, 10, 5),
+              title: "Olay 6",
+              description: "Açıklama 6",
+            },
+            {
+              date: new Date(2024, 10, 5),
+              title: "Olay 7",
+              description: "Açıklama 7",
+            },
+          ],
+          dateField: "date", //dateField: dataSource içindeki tarihin bulunduğu alanı belirtir. Bu, zaman çizelgesinde olayların ne zaman gerçekleştiğini gösterir.
+          titleField: "title", //titleField: dataSource içindeki başlığın bulunduğu alanı belirtir. Bu, zaman çizelgesindeki her olayın başlığını gösterir.
+          descriptionField: "description", //descriptionField: dataSource içindeki açıklamanın bulunduğu alanı belirtir. Bu, her olayın açıklamasını zaman çizelgesinde gösterir.
+          orientation: "horizontal", //Düzen yönünü belirtir.orientation: "horizontal": Panelleri yatay olarak hizalar, yani bir panel üstte, diğerleri altta yer alır.orientation: "vertical": Panelleri dikey olarak hizalar, yani bir panel solda, diğerleri sağda yer alır.
+        });
+      });
+    </script>
+  </body>
+</html>
+<!--
+
+
+
+kendoTimeline: Kronolojik sırada olayları veya etkinlikleri göstermek için kullanılır.
+
+-->
